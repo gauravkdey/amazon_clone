@@ -29,10 +29,21 @@ export type SidebarContent =
     };
 
 function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
+  // const [currentMenu, setCurrentMenu] = useState([]);
+  // const currentSidebar = useRef<SidebarContent[]>(sidebarContents);
+
+  // useEffect(() => {
+  //   for (let index of currentMenu) {
+  //     if (currentSidebar.current[index].hasChild) {
+  //       currentSidebar.current = currentSidebar.current[index].childs;
+  //     }
+  //   }
+  // }, [currentMenu]);
+
   return (
     <>
       <div
-        className={`fixed ${
+        className={`fixed z-20 ${
           isOpen ? "left-0 opacity-100" : "left-[-100vw] opacity-0"
         } flex left-0 top-0 w-screen h-screen duration-100`}
       >
@@ -88,11 +99,12 @@ function SidebarElement({
       <hr />
     </div>
   ) : sidebarContent.hasChild ? (
-    <div className="">
-      <div className="flex justify-between px-6 py-3 hover:bg-stone-200">
-        <span>{sidebarContent.text}</span>
-        <span>&gt;</span>
-      </div>
+    <div
+      onClick={() => {}}
+      className="flex justify-between px-6 py-3 hover:bg-stone-200"
+    >
+      <span>{sidebarContent.text}</span>
+      <span>&gt;</span>
     </div>
   ) : (
     <div className="flex text-sm">
